@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Landing Page Jasa Website</title>
+    <meta name="description" content="Contoh landing page jasa pembuatan website untuk UMKM, toko online, dan company profile." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f5f3ec;
+        --bg-soft: #edeade;
+        --surface: #fffdf8;
+        --ink: #182420;
+        --ink-soft: #43524b;
+        --muted: #6d7a72;
+        --line: #ddd8c8;
+        --accent: #0b6e4f;
+        --accent-strong: #08573e;
+        --accent-ink: #ffffff;
+        --amber: #e9a13b;
+        --amber-soft: #fbeed3;
+        --dark-band: #122b21;
+        --dark-band-ink: #eef4ee;
+        --dark-band-muted: #a9bfae;
+        --shadow: 0 18px 40px -18px rgba(24, 36, 32, .28);
+        --radius: 14px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0f1512;
+          --bg-soft: #151d18;
+          --surface: #18211b;
+          --ink: #edf3ee;
+          --ink-soft: #c3d2c7;
+          --muted: #93a69a;
+          --line: #2a362d;
+          --accent: #35c08d;
+          --accent-strong: #5fd3a6;
+          --accent-ink: #0c1a13;
+          --amber: #eda93f;
+          --amber-soft: #2e2716;
+          --dark-band: #0a1f16;
+          --dark-band-ink: #eef4ee;
+          --dark-band-muted: #a9bfae;
+          --shadow: 0 18px 40px -18px rgba(0, 0, 0, .6);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      img, svg { display: block; }
+      a { color: inherit; }
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+      /* ---------- Nav ---------- */
+      .nav {
+        position: sticky; top: 0; z-index: 50;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner { display: flex; align-items: center; gap: 20px; min-height: 64px; }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -.01em; }
+      .brand-mark {
+        width: 34px; height: 34px; border-radius: 9px; flex: none;
+        background: var(--accent); color: var(--accent-ink);
+        display: grid; place-items: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: .95rem;
+      }
+      .brand em { font-style: normal; color: var(--accent); }
+      .nav-links { display: flex; gap: 4px; margin-left: auto; }
+      .nav-links a {
+        text-decoration: none; font-weight: 600; font-size: .95rem; color: var(--ink-soft);
+        padding: 10px 12px; border-radius: 8px; min-height: 40px; display: inline-flex; align-items: center;
+      }
+      .nav-links a:hover { color: var(--ink); background: var(--bg-soft); }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+        min-height: 48px; padding: 12px 22px; border-radius: 10px;
+        font-weight: 700; font-size: 1rem; text-decoration: none; border: 1px solid transparent;
+        cursor: pointer; font-family: inherit; transition: background .15s ease, transform .15s ease;
+      }
+      .btn:active { transform: translateY(1px); }
+      .btn-wa { background: var(--accent); color: var(--accent-ink); }
+      .btn-wa:hover { background: var(--accent-strong); }
+      .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+      .btn-ghost:hover { background: var(--bg-soft); }
+      .btn-nav { min-height: 42px; padding: 8px 16px; font-size: .95rem; margin-left: 8px; }
+      @media (max-width: 760px) { .nav-links { display: none; } .nav-inner { justify-content: space-between; } }
+
+      /* ---------- Hero ---------- */
+      .hero { padding: 56px 0 64px; }
+      .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+      @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } .hero { padding: 36px 0 48px; } }
+      .hero-badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--amber-soft); color: var(--ink);
+        border: 1px solid var(--amber); border-radius: 999px;
+        padding: 6px 14px; font-size: .85rem; font-weight: 700;
+      }
+      .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
+      h1 {
+        font-size: clamp(2.1rem, 5.2vw, 3.4rem); line-height: 1.12; letter-spacing: -.02em;
+        font-weight: 800; margin: 18px 0 16px;
+      }
+      h1 .hl { color: var(--accent); box-shadow: inset 0 -0.32em 0 var(--amber-soft); }
+      .hero-sub { font-size: 1.13rem; color: var(--ink-soft); margin: 0 0 28px; max-width: 34rem; }
+      .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+      .hero-note { margin-top: 14px; font-size: .9rem; color: var(--muted); }
+      .hero-stats { display: flex; flex-wrap: wrap; gap: 0; margin-top: 36px; border-top: 1px solid var(--line); }
+      .hero-stats div { padding: 16px 28px 0 0; margin-right: 28px; }
+      .hero-stats b { display: block; font-size: 1.45rem; font-weight: 800; letter-spacing: -.01em; }
+      .hero-stats span { font-size: .88rem; color: var(--muted); }
+
+      /* Browser mockup */
+      .mock {
+        background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+        box-shadow: var(--shadow); overflow: hidden;
+      }
+      .mock-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: var(--bg-soft); }
+      .mock-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--line); }
+      .mock-bar i:first-child { background: #e0655a; } .mock-bar i:nth-child(2) { background: var(--amber); } .mock-bar i:nth-child(3) { background: var(--accent); }
+      .mock-url { margin-left: 8px; flex: 1; background: var(--surface); border: 1px solid var(--line); border-radius: 7px; font-size: .78rem; padding: 4px 10px; color: var(--muted); font-family: "IBM Plex Mono", monospace; white-space: nowrap; overflow: hidden; }
+      .mock-body { padding: 22px; }
+      .mock-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+      .mock-logo { font-weight: 800; font-size: .95rem; }
+      .mock-logo em { font-style: normal; color: #b06f2f; }
+      .mock-links { display: flex; gap: 12px; }
+      .mock-links i { width: 34px; height: 7px; border-radius: 4px; background: var(--line); }
+      .mock-h { font-size: 1.35rem; font-weight: 800; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 8px; }
+      .mock-p { height: 8px; border-radius: 4px; background: var(--line); margin-bottom: 7px; }
+      .mock-p.short { width: 62%; }
+      .mock-btn { display: inline-block; margin-top: 10px; background: #b06f2f; color: #fff; font-weight: 700; font-size: .82rem; padding: 9px 16px; border-radius: 8px; }
+      .mock-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+      .mock-card { border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+      .mock-thumb { height: 44px; border-radius: 6px; margin-bottom: 8px; }
+      .t1 { background: linear-gradient(135deg, #d9a05b, #a5672a); }
+      .t2 { background: linear-gradient(135deg, #7a4a21, #4c2c12); }
+      .t3 { background: linear-gradient(135deg, #e8c07a, #c08b3e); }
+      .mock-line { height: 6px; border-radius: 3px; background: var(--line); margin-bottom: 5px; }
+      .mock-line.short { width: 55%; }
+      .hero-caption { margin-top: 12px; font-size: .85rem; color: var(--muted); text-align: center; }
+
+      /* ---------- Band ---------- */
+      .band { background: var(--dark-band); color: var(--dark-band-ink); }
+      .band-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 26px; padding: 20px 0; }
+      .band b { font-size: .95rem; }
+      .band span { color: var(--dark-band-muted); font-size: .95rem; display: inline-flex; align-items: center; gap: 26px; }
+      .band span::after { content: "·"; color: var(--amber); font-weight: 800; }
+      .band span:last-child::after { content: ""; }
+
+      /* ---------- Sections ---------- */
+      section { padding: 72px 0; }
+      section.alt { background: var(--bg-soft); }
+      .sec-head { max-width: 640px; margin-bottom: 40px; }
+      .sec-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.2; margin: 0 0 10px; }
+      .sec-head p { color: var(--ink-soft); margin: 0; font-size: 1.05rem; }
+
+      /* Services */
+      .svc { border-top: 1px solid var(--line); }
+      .svc-row {
+        display: grid; grid-template-columns: 64px 1fr auto; gap: 20px; align-items: start;
+        padding: 26px 6px; border-bottom: 1px solid var(--line);
+      }
+      .svc-num { font-family: "IBM Plex Mono", monospace; font-weight: 600; color: var(--accent); font-size: 1rem; padding-top: 4px; }
+      .svc-row h3 { margin: 0 0 6px; font-size: 1.25rem; font-weight: 800; letter-spacing: -.01em; }
+      .svc-row p { margin: 0; color: var(--ink-soft); max-width: 36rem; }
+      .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+      .svc-tags span { font-size: .8rem; font-weight: 600; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: var(--ink-soft); background: var(--surface); }
+      .svc-price { text-align: right; white-space: nowrap; }
+      .svc-price small { display: block; color: var(--muted); font-size: .8rem; }
+      .svc-price b { font-size: 1.2rem; font-weight: 800; }
+      @media (max-width: 640px) {
+        .svc-row { grid-template-columns: 40px 1fr; }
+        .svc-price { grid-column: 2; text-align: left; margin-top: 4px; }
+        .svc-price small { display: inline; margin-right: 6px; }
+      }
+
+      /* Portfolio */
+      .folio { display: grid; gap: 28px; }
+      .folio-item {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+      }
+      .folio-item:nth-child(even) .folio-visual { order: 2; }
+      @media (max-width: 820px) { .folio-item { grid-template-columns: 1fr; padding: 20px; } .folio-item:nth-child(even) .folio-visual { order: 0; } }
+      .folio-visual .mock-body { padding: 18px; }
+      .folio-cat { font-family: "IBM Plex Mono", monospace; font-size: .8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
+      .folio-item h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; margin: 8px 0 8px; }
+      .folio-item p { color: var(--ink-soft); margin: 0 0 14px; }
+      .folio-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+      .folio-points li { display: flex; gap: 9px; align-items: flex-start; font-size: .97rem; }
+      .folio-points svg { flex: none; margin-top: 3px; color: var(--accent); }
+
+      /* Pricing */
+      .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+      @media (max-width: 900px) { .price-grid { grid-template-columns: 1fr; } }
+      .plan {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 28px; display: flex; flex-direction: column;
+      }
+      .plan.featured { background: var(--dark-band); color: var(--dark-band-ink); border-color: var(--dark-band); box-shadow: var(--shadow); }
+      .plan-name { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+      .plan-flag { background: var(--amber); color: #23180a; font-size: .72rem; font-weight: 800; padding: 3px 9px; border-radius: 999px; letter-spacing: .02em; }
+      .plan-desc { color: var(--muted); font-size: .94rem; margin: 8px 0 18px; }
+      .plan.featured .plan-desc { color: var(--dark-band-muted); }
+      .plan-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+      .plan-price .rp { font-size: .95rem; font-weight: 600; color: var(--muted); }
+      .plan.featured .plan-price .rp { color: var(--dark-band-muted); }
+      .plan-price b { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; }
+      .plan-once { font-size: .85rem; color: var(--muted); margin-bottom: 20px; }
+      .plan.featured .plan-once { color: var(--dark-band-muted); }
+      .plan ul { list-style: none; margin: 0 0 24px; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; gap: 10px; flex: 1; }
+      .plan.featured ul { border-top-color: rgba(255,255,255,.16); }
+      .plan li { display: flex; gap: 9px; align-items: flex-start; font-size: .96rem; }
+      .plan li svg { flex: none; margin-top: 3px; color: var(--accent); }
+      .plan.featured li svg { color: var(--amber); }
+      .plan li.off { color: var(--muted); }
+      .plan li.off svg { color: var(--muted); }
+      .price-note { margin-top: 22px; text-align: center; color: var(--muted); font-size: .95rem; }
+
+      /* Calculator */
+      .calc {
+        display: grid; grid-template-columns: 1.15fr .85fr; gap: 0;
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+      }
+      @media (max-width: 860px) { .calc { grid-template-columns: 1fr; } }
+      .calc-form { padding: 28px; }
+      .calc-form h3, .calc-result h3 { margin: 0 0 4px; font-size: 1.15rem; font-weight: 800; }
+      .calc-form > p, .calc-result > p { margin: 0 0 20px; color: var(--muted); font-size: .93rem; }
+      .field-label { display: block; font-weight: 700; font-size: .92rem; margin: 20px 0 8px; }
+      .field-label:first-of-type { margin-top: 0; }
+      .seg { display: flex; flex-wrap: wrap; gap: 8px; }
+      .seg button, .addon {
+        font-family: inherit; font-weight: 600; font-size: .93rem; cursor: pointer;
+        border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+        border-radius: 10px; padding: 10px 14px; min-height: 44px;
+      }
+      .seg button[aria-pressed="true"], .addon[aria-pressed="true"] {
+        background: var(--accent); border-color: var(--accent); color: var(--accent-ink);
+      }
+      .seg button small { display: block; font-weight: 500; font-size: .78rem; opacity: .75; }
+      .pages-row { display: flex; align-items: center; gap: 16px; }
+      .pages-row input[type="range"] { flex: 1; accent-color: var(--accent); min-height: 44px; }
+      .pages-val { font-family: "IBM Plex Mono", monospace; font-weight: 600; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; min-width: 74px; text-align: center; }
+      .calc-result { background: var(--dark-band); color: var(--dark-band-ink); padding: 28px; display: flex; flex-direction: column; }
+      .calc-result > p { color: var(--dark-band-muted); }
+      .calc-lines { display: grid; gap: 9px; font-size: .95rem; margin-bottom: 18px; }
+      .calc-lines div { display: flex; justify-content: space-between; gap: 16px; }
+      .calc-lines span { color: var(--dark-band-muted); }
+      .calc-lines b { font-family: "IBM Plex Mono", monospace; font-weight: 600; white-space: nowrap; }
+      .calc-total { border-top: 1px solid rgba(255,255,255,.18); padding-top: 16px; margin-top: auto; }
+      .calc-total small { color: var(--dark-band-muted); display: block; font-size: .85rem; }
+      .calc-total .amount { font-size: 2rem; font-weight: 800; letter-spacing: -.02em; margin: 2px 0 16px; }
+      .calc-result .btn { width: 100%; }
+      .calc-fine { font-size: .8rem; color: var(--dark-band-muted); margin-top: 12px; }
+
+      /* Process */
+      .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+      @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+      .step { border-top: 3px solid var(--accent); padding-top: 16px; }
+      .step .n { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-weight: 600; font-size: .9rem; }
+      .step h3 { margin: 8px 0 6px; font-size: 1.1rem; font-weight: 800; }
+      .step p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
+
+      /* Testimonials */
+      .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+      .testi { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 16px; }
+      .testi .stars { color: var(--amber); display: flex; gap: 2px; }
+      .testi blockquote { margin: 0; font-size: 1.02rem; color: var(--ink); flex: 1; }
+      .testi figcaption { display: flex; align-items: center; gap: 12px; }
+      .avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-weight: 800; flex: none; }
+      .testi figcaption b { display: block; font-size: .95rem; }
+      .testi figcaption span { font-size: .85rem; color: var(--muted); }
+
+      /* FAQ */
+      .faq { max-width: 760px; }
+      .faq details { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); margin-bottom: 12px; overflow: hidden; }
+      .faq summary {
+        cursor: pointer; font-weight: 700; font-size: 1.02rem; list-style: none;
+        padding: 18px 20px; min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      }
+      .faq summary::-webkit-details-marker { display: none; }
+      .faq summary .chev { flex: none; color: var(--accent); transition: transform .2s ease; }
+      .faq details[open ] summary .chev { transform: rotate(180deg); }
+      .faq details p { margin: 0; padding: 0 20px 20px; color: var(--ink-soft); }
+
+      /* Final CTA */
+      .cta-panel {
+        background: var(--dark-band); color: var(--dark-band-ink); border-radius: 20px;
+        padding: 48px 40px; text-align: center;
+      }
+      @media (max-width: 640px) { .cta-panel { padding: 36px 22px; } }
+      .cta-panel h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -.02em; margin: 0 0 12px; line-height: 1.2; }
+      .cta-panel p { color: var(--dark-band-muted); max-width: 34rem; margin: 0 auto 26px; font-size: 1.05rem; }
+      .cta-panel .btn { background: var(--amber); color: #23180a; }
+      .cta-panel .btn:hover { background: #d98f24; }
+      .cta-meta { margin-top: 18px; font-size: .9rem; color: var(--dark-band-muted); }
+
+      footer { border-top: 1px solid var(--line); padding: 36px 0 96px; }
+      .foot { display: flex; flex-wrap: wrap; gap: 18px 40px; justify-content: space-between; align-items: flex-start; }
+      .foot p { color: var(--muted); font-size: .92rem; margin: 6px 0 0; max-width: 22rem; }
+      .foot nav { display: flex; flex-direction: column; gap: 6px; }
+      .foot nav a { text-decoration: none; color: var(--ink-soft); font-weight: 600; font-size: .95rem; padding: 4px 0; min-height: 32px; display: inline-flex; align-items: center; }
+      .foot nav a:hover { color: var(--accent); }
+      .foot .fine { width: 100%; border-top: 1px solid var(--line); padding-top: 18px; color: var(--muted); font-size: .85rem; }
+
+      /* Floating WA */
+      .wa-float {
+        position: fixed; right: 18px; bottom: 18px; z-index: 60;
+        width: 58px; height: 58px; border-radius: 50%;
+        background: #22a95c; color: #fff; display: grid; place-items: center;
+        box-shadow: 0 10px 26px -8px rgba(20, 80, 45, .55); text-decoration: none;
+      }
+      .wa-float:hover { background: #1b8a4b; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+    </style>
+  </head>
+  <body>
+
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#atas"><span class="brand-mark">&lt;/&gt;</span>Web<em>Laris</em></a>
+        <nav class="nav-links" aria-label="Navigasi utama">
+          <a href="#layanan">Layanan</a>
+          <a href="#portofolio">Portofolio</a>
+          <a href="#harga">Harga</a>
+          <a href="#kalkulator">Simulasi</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a class="btn btn-wa btn-nav" href="https://wa.me/6285646719823?text=Halo%20WebLaris%2C%20saya%20mau%20konsultasi%20bikin%20website." target="_blank" rel="noopener">Konsultasi Gratis</a>
+      </div>
+    </header>
+
+    <main id="atas">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <span class="hero-badge"><span class="dot"></span> Slot pengerjaan bulan ini masih dibuka</span>
+            <h1>Usaha jalan terus, tapi pelanggan <span class="hl">nggak nemu kamu</span> di internet?</h1>
+            <p class="hero-sub">Kami bantu UMKM, toko online, dan bisnis jasa punya website profesional yang cepat, rapi di HP, dan langsung terhubung ke WhatsApp — tanpa ribet, tanpa biaya siluman.</p>
+            <div class="hero-cta">
+              <a class="btn btn-wa" href="https://wa.me/6285646719823?text=Halo%20WebLaris%2C%20saya%20mau%20tanya-tanya%20dulu%20soal%20pembuatan%20website." target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.87 9.87 0 0 0 12.04 2m0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28"/></svg>
+                Chat WhatsApp
+              </a>
+              <a class="btn btn-ghost" href="#harga">Lihat Paket Harga</a>
+            </div>
+            <p class="hero-note">Gratis konsultasi &amp; tanya-tanya dulu. Nggak jadi pun nggak apa-apa.</p>
+            <div class="hero-stats">
+              <div><b>Rp 299 rb</b><span>paket mulai dari</span></div>
+              <div><b>3–7 hari</b><span>rata-rata pengerjaan</span></div>
+              <div><b>30 hari</b><span>garansi perbaikan gratis</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">kopisenja.id</span></div>
+              <div class="mock-body">
+                <div class="mock-nav">
+                  <span class="mock-logo">Kopi<em>Senja</em></span>
+                  <span class="mock-links"><i></i><i></i><i></i></span>
+                </div>
+                <p class="mock-h">Ngopi santai, rasa serius.</p>
+                <div class="mock-p"></div>
+                <div class="mock-p short"></div>
+                <span class="mock-btn">Pesan Sekarang</span>
+                <div class="mock-cards">
+                  <div class="mock-card"><div class="mock-thumb t1"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                  <div class="mock-card"><div class="mock-thumb t2"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                  <div class="mock-card"><div class="mock-thumb t3"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                </div>
+              </div>
+            </div>
+            <p class="hero-caption">Contoh tampilan website kedai kopi — salah satu gaya desain yang bisa kami buat untuk usahamu.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BAND -->
+      <div class="band">
+        <div class="wrap band-inner">
+          <b>Cocok untuk:</b>
+          <span>Kuliner &amp; kafe</span><span>Toko online</span><span>Jasa &amp; bengkel</span><span>Properti</span><span>Klinik &amp; salon</span><span>Sekolah &amp; kursus</span><span>UMKM lainnya</span>
+        </div>
+      </div>
+
+      <!-- LAYANAN -->
+      <section id="layanan">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Pilih jenis website yang paling pas buat usahamu</h2>
+            <p>Semua paket sudah termasuk domain, hosting 1 tahun, SSL (https), dan panduan cara mengelola websitenya.</p>
+          </div>
+          <div class="svc">
+            <div class="svc-row">
+              <span class="svc-num">01</span>
+              <div>
+                <h3>Landing Page</h3>
+                <p>Satu halaman fokus jualan: cocok untuk promosi produk, jasa, atau event. Isinya padat, loading cepat, dan semua tombol mengarah ke WhatsApp atau formulir order.</p>
+                <div class="svc-tags"><span>Promosi produk</span><span>Iklan Meta/Google Ads</span><span>Pre-order</span></div>
+              </div>
+              <div class="svc-price"><small>mulai dari</small><b>Rp 299 rb</b></div>
+            </div>
+            <div class="svc-row">
+              <span class="svc-num">02</span>
+              <div>
+                <h3>Company Profile</h3>
+                <p>Website resmi perusahaan atau usaha: profil, layanan, galeri, testimoni, dan kontak. Bikin calon pelanggan dan mitra makin percaya sebelum menghubungi kamu.</p>
+                <div class="svc-tags"><span>Profil usaha</span><span>Portofolio</span><span>Blog/artikel</span></div>
+              </div>
+              <div class="svc-price"><small>mulai dari</small><b>Rp 599 rb</b></div>
+            </div>
+            <div class="svc-row">
+              <span class="svc-num">03</span>
+              <div>
+                <h3>Toko Online</h3>
+                <p>Katalog produk lengkap dengan keranjang belanja dan checkout. Pesanan masuk rapi, stok gampang diatur, dan pelanggan bisa belanja kapan saja — bahkan saat kamu tidur.</p>
+                <div class="svc-tags"><span>Katalog produk</span><span>Checkout WhatsApp</span><span>Payment gateway</span></div>
+              </div>
+              <div class="svc-price"><small>mulai dari</small><b>Rp 1,19 jt</b></div>
+            </div>
+            <div class="svc-row">
+              <span class="svc-num">04</span>
+              <div>
+                <h3>Website Custom</h3>
+                <p>Butuh fitur khusus? Sistem booking, web aplikasi, portal member, atau integrasi dengan sistem yang sudah ada — ceritakan kebutuhanmu, kami carikan jalan paling masuk akal.</p>
+                <div class="svc-tags"><span>Sistem booking</span><span>Web app</span><span>Integrasi API</span></div>
+              </div>
+              <div class="svc-price"><small>mulai dari</small><b>Rp 2,5 jt</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTOFOLIO -->
+      <section id="portofolio" class="alt">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Contoh hasil kerja kami</h2>
+            <p>Setiap website dirancang mengikuti karakter bisnisnya — bukan template pasaran yang diganti logo. (Nama dan isi di bagian ini adalah contoh — ganti dengan proyek aslimu.)</p>
+          </div>
+          <div class="folio">
+            <article class="folio-item">
+              <div class="folio-visual">
+                <div class="mock" aria-hidden="true">
+                  <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">kopisenja.id</span></div>
+                  <div class="mock-body">
+                    <p class="mock-h">Menu digital &amp; pesan antar</p>
+                    <div class="mock-p"></div><div class="mock-p short"></div>
+                    <span class="mock-btn" style="background:#b06f2f">Lihat Menu</span>
+                    <div class="mock-cards">
+                      <div class="mock-card"><div class="mock-thumb t1"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                      <div class="mock-card"><div class="mock-thumb t2"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                      <div class="mock-card"><div class="mock-thumb t3"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span class="folio-cat">Kedai Kopi — Yogyakarta</span>
+                <h3>Kopi Senja</h3>
+                <p>Landing page dengan menu digital yang bisa di-update sendiri oleh pemilik, lengkap dengan tombol pesan antar dan reservasi meja.</p>
+                <ul class="folio-points">
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Menu digital, update harga tanpa coding</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Reservasi meja langsung masuk WhatsApp</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lokasi terhubung ke Google Maps &amp; pencarian lokal</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="folio-item">
+              <div class="folio-visual">
+                <div class="mock" aria-hidden="true">
+                  <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">larasbatik.com</span></div>
+                  <div class="mock-body">
+                    <p class="mock-h">Batik premium, kirim se-Indonesia</p>
+                    <div class="mock-p"></div><div class="mock-p short"></div>
+                    <span class="mock-btn" style="background:#8a4b2a">Belanja Sekarang</span>
+                    <div class="mock-cards">
+                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#c98d5e,#8a4b2a)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#5e3a1e,#33200f)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#e0aa6e,#b57a3e)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span class="folio-cat">Butik Fashion — Solo</span>
+                <h3>Laras Batik</h3>
+                <p>Toko online untuk butik batik yang sebelumnya hanya jualan lewat Instagram. Sekarang katalog rapi, stok terkontrol, dan order masuk lewat satu pintu.</p>
+                <ul class="folio-points">
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Katalog 120+ produk dengan filter ukuran &amp; motif</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Checkout dengan hitung ongkir otomatis</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Terhubung ke Instagram Shop &amp; katalog WhatsApp</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="folio-item">
+              <div class="folio-visual">
+                <div class="mock" aria-hidden="true">
+                  <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">berkahmotor.co.id</span></div>
+                  <div class="mock-body">
+                    <p class="mock-h">Booking servis tanpa antre</p>
+                    <div class="mock-p"></div><div class="mock-p short"></div>
+                    <span class="mock-btn" style="background:#0b6e4f">Booking Servis</span>
+                    <div class="mock-cards">
+                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#3f6212,#1d2e08)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#78716c,#44403c)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#0b6e4f,#073d2b)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span class="folio-cat">Bengkel &amp; Sparepart — Bekasi</span>
+                <h3>Berkah Motor</h3>
+                <p>Company profile plus sistem booking servis sederhana. Pelanggan pilih jadwal dari HP, bengkel menerima rekap otomatis — antrean jadi jauh lebih tertib.</p>
+                <ul class="folio-points">
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Formulir booking dengan pilihan jadwal &amp; jenis servis</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Daftar harga jasa transparan, mengurangi tanya berulang</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tombol darurat derek 24 jam selalu terlihat</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HARGA -->
+      <section id="harga">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Harga jelas dari awal, tanpa biaya siluman</h2>
+            <p>Sekali bayar untuk pembuatan. Tahun berikutnya cukup perpanjang domain &amp; hosting mulai Rp 350 rb/tahun.</p>
+          </div>
+          <div class="price-grid">
+            <div class="plan">
+              <div class="plan-name">Landing Page</div>
+              <p class="plan-desc">Untuk promosi satu produk atau jasa. Cepat jadi, fokus ke konversi.</p>
+              <div class="plan-price"><span class="rp">Rp</span><b>299 rb</b></div>
+              <p class="plan-once">sekali bayar · jadi 3 hari</p>
+              <ul>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1 halaman panjang (one-page)</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Desain responsif (HP, tablet, laptop)</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tombol WhatsApp &amp; formulir order</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Galeri foto &amp; peta lokasi</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Domain + hosting + SSL 1 tahun</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Revisi minor 2×</li>
+                <li class="off"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Blog / artikel</li>
+              </ul>
+              <a class="btn btn-ghost" href="https://wa.me/6285646719823?text=Halo%20WebLaris%2C%20saya%20tertarik%20paket%20Landing%20Page%20Rp%20299%20rb." target="_blank" rel="noopener">Pilih Paket Ini</a>
+            </div>
+
+            <div class="plan featured">
+              <div class="plan-name">Bisnis <span class="plan-flag">PALING LARIS</span></div>
+              <p class="plan-desc">Untuk usaha yang butuh website resmi lengkap dan siap ditemukan di Google.</p>
+              <div class="plan-price"><span class="rp">Rp</span><b>599 rb</b></div>
+              <p class="plan-once">sekali bayar · jadi 5 hari</p>
+              <ul>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sampai 6 halaman (profil, layanan, galeri, kontak…)</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Semua fitur paket Landing Page</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Blog/artikel untuk konten promosi</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>SEO dasar + terdaftar di Google Maps</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Statistik pengunjung (Google Analytics)</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Domain + hosting + SSL 1 tahun</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Revisi minor 3× + panduan video</li>
+              </ul>
+              <a class="btn btn-wa" style="background:var(--amber);color:#23180a" href="https://wa.me/6285646719823?text=Halo%20WebLaris%2C%20saya%20tertarik%20paket%20Bisnis%20Rp%20599%20rb." target="_blank" rel="noopener">Pilih Paket Ini</a>
+            </div>
+
+            <div class="plan">
+              <div class="plan-name">Toko Online</div>
+              <p class="plan-desc">Untuk jualan serius: katalog, keranjang, dan checkout yang rapi.</p>
+              <div class="plan-price"><span class="rp">Rp</span><b>1,19 jt</b></div>
+              <p class="plan-once">sekali bayar · jadi 7 hari</p>
+              <ul>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Katalog sampai 50 produk</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Keranjang belanja &amp; checkout WhatsApp</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Payment gateway (QRIS, transfer, e-wallet)</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hitung ongkir otomatis</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kupon diskon &amp; laporan penjualan</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Domain + hosting + SSL 1 tahun</li>
+                <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pelatihan kelola toko 1 sesi + revisi 3×</li>
+              </ul>
+              <a class="btn btn-ghost" href="https://wa.me/6285646719823?text=Halo%20WebLaris%2C%20saya%20tertarik%20paket%20Toko%20Online%20Rp%201%2C19%20jt." target="_blank" rel="noopener">Pilih Paket Ini</a>
+            </div>
+          </div>
+          <p class="price-note">Pembayaran bisa dicicil 2×: DP 50% untuk mulai, pelunasan setelah website jadi dan kamu puas dengan hasilnya.</p>
+        </div>
+      </section>
+
+      <!-- KALKULATOR -->
+      <section id="kalkulator" class="alt">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Simulasi harga sendiri</h2>
+            <p>Geser dan pilih sesuai kebutuhanmu — estimasi langsung muncul. Harga final dikonfirmasi lagi saat konsultasi, tanpa kewajiban.</p>
+          </div>
+          <div class="calc">
+            <div class="calc-form">
+              <h3>Atur kebutuhanmu</h3>
+              <p>Estimasi berubah otomatis mengikuti pilihanmu.</p>
+
+              <span class="field-label" id="lbl-jenis">Jenis website</span>
+              <div class="seg" role="group" aria-labelledby="lbl-jenis" id="seg-jenis">
+                <button type="button" data-type="landing" aria-pressed="true">Landing Page<small>basis Rp 299 rb</small></button>
+                <button type="button" data-type="bisnis" aria-pressed="false">Company Profile<small>basis Rp 599 rb</small></button>
+                <button type="button" data-type="toko" aria-pressed="false">Toko Online<small>basis Rp 1,19 jt</small></button>
+              </div>
+
+              <span class="field-label" id="lbl-halaman">Jumlah halaman: <span id="pages-echo">1 halaman</span></span>
+              <div class="pages-row">
+                <input type="range" id="pages" min="1" max="20" step="1" value="1" aria-labelledby="lbl-halaman" />
+                <span class="pages-val" id="pages-val">1 hal.</span>
+              </div>
+              <p style="margin:6px 0 0;font-size:.85rem;color:var(--muted)" id="pages-note">Paket ini sudah termasuk 1 halaman. Halaman ekstra Rp 50 rb/halaman.</p>
+
+              <span class="field-label" id="lbl-addon">Fitur tambahan (opsional)</span>
+              <div class="seg" role="group" aria-labelledby="lbl-addon" id="seg-addon">
+                <button type="button" class="addon" data-addon="logo" data-price="150000" aria-pressed="false">Desain logo sederhana · +150 rb</button>
+                <button type="button" class="addon" data-addon="tulis" data-price="100000" aria-pressed="false">Bantuan tulis konten · +100 rb</button>
+                <button type="button" class="addon" data-addon="seo" data-price="150000" aria-pressed="false">SEO lanjutan · +150 rb</button>
+                <button type="button" class="addon" data-addon="foto" data-price="250000" aria-pressed="false">Sesi foto produk · +250 rb</button>
+                <button type="button" class="addon" data-addon="kilat" data-price="100000" aria-pressed="false">Pengerjaan kilat (lebih cepat) · +100 rb</button>
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <h3>Estimasi biayamu</h3>
+              <p>Rincian berdasarkan pilihan di samping.</p>
+              <div class="calc-lines" id="calc-lines"></div>
+              <div class="calc-total">
+                <small>Total estimasi (sekali bayar)</small>
+                <div class="amount" id="calc-total">Rp 299.000</div>
+                <a class="btn" id="calc-wa" href="https://wa.me/6285646719823" target="_blank" rel="noopener" style="background:var(--amber);color:#23180a">
+                  Kirim Estimasi Ini ke WhatsApp
+                </a>
+                <p class="calc-fine">DP mulai 50% — sisanya setelah website selesai dan kamu setujui.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROSES -->
+      <section id="proses">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Cara kerjanya gampang, kamu nggak perlu paham teknis</h2>
+            <p>Cukup siapkan materi seadanya — foto produk, daftar harga, cerita usahamu. Sisanya kami yang urus.</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <span class="n">Langkah 1</span>
+              <h3>Ngobrol dulu</h3>
+              <p>Ceritakan usahamu lewat WhatsApp. Kami tanya kebutuhan dan sarankan paket yang paling masuk akal — bukan yang paling mahal.</p>
+            </div>
+            <div class="step">
+              <span class="n">Langkah 2</span>
+              <h3>Kirim materi &amp; DP</h3>
+              <p>Kirim logo (kalau ada), foto, dan teks seadanya. Setelah DP 50% masuk, pengerjaan langsung dimulai.</p>
+            </div>
+            <div class="step">
+              <span class="n">Langkah 3</span>
+              <h3>Review &amp; revisi</h3>
+              <p>Kamu terima tautan pratinjau, cek dari HP-mu sendiri, lalu minta revisi sesuai jatah paket sampai tampilannya pas.</p>
+            </div>
+            <div class="step">
+              <span class="n">Langkah 4</span>
+              <h3>Online &amp; didampingi</h3>
+              <p>Website tayang dengan domainmu sendiri. Kamu dapat panduan video dan tetap bisa tanya kami setelahnya.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONI -->
+      <section class="alt">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Kata mereka yang sudah punya website</h2>
+            <p>Testimoni contoh — nanti ganti dengan testimoni asli dari klienmu.</p>
+          </div>
+          <div class="testi-grid">
+            <figure class="testi">
+              <div class="stars" aria-label="Rating 5 dari 5">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+              </div>
+              <blockquote>“Dulu menu kami cuma foto di Instagram, sering ditanya harga berulang-ulang. Sekarang pelanggan tinggal buka web, pilih menu, langsung pesan. Hemat waktu banget.”</blockquote>
+              <figcaption>
+                <span class="avatar">R</span>
+                <span><b>Bu Rina</b><span>Pemilik Kopi Senja, Yogyakarta</span></span>
+              </figcaption>
+            </figure>
+            <figure class="testi">
+              <div class="stars" aria-label="Rating 5 dari 5">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+              </div>
+              <blockquote>“Saya gaptek, awalnya ragu. Ternyata tinggal kirim foto produk lewat WA, sisanya dibereskan. Toko online saya sekarang nerima order dari luar kota juga.”</blockquote>
+              <figcaption>
+                <span class="avatar">L</span>
+                <span><b>Mbak Laras</b><span>Pemilik Laras Batik, Solo</span></span>
+              </figcaption>
+            </figure>
+            <figure class="testi">
+              <div class="stars" aria-label="Rating 5 dari 5">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.9 8.6l6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>
+              </div>
+              <blockquote>“Fitur booking servisnya ngebantu banget. Pelanggan pilih jadwal sendiri, saya terima rekapnya rapi. Bengkel kelihatan jauh lebih profesional sekarang.”</blockquote>
+              <figcaption>
+                <span class="avatar">D</span>
+                <span><b>Pak Dedi</b><span>Pemilik Berkah Motor, Bekasi</span></span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Sering ditanyakan</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Berapa lama website saya jadi?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <p>Landing page rata-rata 3 hari kerja, company profile 5 hari, toko online 7 hari — dihitung sejak materi lengkap dan DP diterima. Kalau butuh lebih cepat, ada opsi pengerjaan kilat di simulasi harga.</p>
+            </details>
+            <details>
+              <summary>Saya nggak punya logo dan belum ada teks. Bisa dibantu?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <p>Bisa. Ceritakan saja usahamu dengan bahasamu sendiri lewat WhatsApp, nanti kami bantu susun jadi teks website yang enak dibaca. Logo sederhana juga bisa kami buatkan sebagai fitur tambahan.</p>
+            </details>
+            <details>
+              <summary>Domain dan hosting itu apa? Apakah sudah termasuk?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <p>Domain itu alamat websitemu (misalnya kopisenja.id), hosting itu tempat file website disimpan. Keduanya sudah termasuk gratis untuk tahun pertama di semua paket. Tahun berikutnya perpanjangan mulai Rp 350 rb/tahun — kami ingatkan sebelum jatuh tempo.</p>
+            </details>
+            <details>
+              <summary>Setelah jadi, apakah saya bisa mengubah isi website sendiri?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <p>Bisa. Kamu dapat akses pengelola penuh plus panduan video berbahasa sederhana untuk mengubah teks, foto, harga, dan menambah produk. Kalau sedang sibuk, tim kami juga bisa bantu update dengan biaya kecil per permintaan.</p>
+            </details>
+            <details>
+              <summary>Bagaimana cara pembayarannya? Apakah aman?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <p>DP 50% di awal lewat transfer bank atau e-wallet, pelunasan setelah website selesai dan kamu sudah melihat serta menyetujui hasilnya. Kamu menerima invoice resmi untuk setiap pembayaran.</p>
+            </details>
+            <details>
+              <summary>Kalau nanti ada kendala atau website bermasalah, bagaimana?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <p>Ada garansi perbaikan gratis 30 hari untuk error yang berasal dari pengerjaan kami. Setelah itu kamu tetap bisa menghubungi kami lewat WhatsApp — mayoritas kendala kecil kami bantu tanpa biaya.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA AKHIR -->
+      <section style="padding-top:0">
+        <div class="wrap">
+          <div class="cta-panel">
+            <h2>Pesaingmu sudah punya website.<br />Giliranmu sekarang.</h2>
+            <p>Konsultasi gratis, tanpa kewajiban. Ceritakan usahamu, kami kasih gambaran jujur soal paket, harga, dan waktu pengerjaannya.</p>
+            <a class="btn" href="https://wa.me/6285646719823?text=Halo%20WebLaris%2C%20saya%20mau%20konsultasi%20gratis%20bikin%20website%20buat%20usaha%20saya." target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.87 9.87 0 0 0 12.04 2m0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28"/></svg>
+              Mulai Konsultasi Gratis
+            </a>
+            <p class="cta-meta">Dibalas pada jam kerja 08.00–21.00 WIB · Bisa juga email ke halo@weblaris.id</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <a class="brand" href="#atas"><span class="brand-mark">&lt;/&gt;</span>Web<em>Laris</em></a>
+          <p>Jasa pembuatan website untuk UMKM dan bisnis lokal Indonesia. Cepat, transparan, dan didampingi sampai online.</p>
+        </div>
+        <nav aria-label="Tautan layanan">
+          <a href="#layanan">Layanan</a>
+          <a href="#portofolio">Portofolio</a>
+          <a href="#harga">Paket Harga</a>
+        </nav>
+        <nav aria-label="Tautan bantuan">
+          <a href="#kalkulator">Simulasi Harga</a>
+          <a href="#proses">Cara Kerja</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div>
+          <b style="display:block;margin-bottom:6px">Kontak</b>
+          <p style="margin:0">WhatsApp: 0856-4671-9823<br />Email: halo@weblaris.id<br />Jam kerja: 08.00–21.00 WIB</p>
+        </div>
+        <p class="fine">© <span id="year">2026</span> WebLaris. Halaman ini adalah contoh landing page — nama usaha, harga, dan kontak dapat diganti sesuai kebutuhan.</p>
+      </div>
+    </footer>
+
+    <a class="wa-float" href="https://wa.me/6285646719823?text=Halo%20WebLaris%2C%20saya%20mau%20tanya%20soal%20pembuatan%20website." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+      <svg width="29" height="29" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.87 9.87 0 0 0 12.04 2m0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28"/></svg>
+    </a>
+
+    <script>
+      (function () {
+        var WA_NUMBER = "6285646719823";
+        var EXTRA_PAGE = 50000;
+        var TYPES = {
+          landing: { label: "Landing Page", base: 299000, included: 1 },
+          bisnis:  { label: "Company Profile (Paket Bisnis)", base: 599000, included: 6 },
+          toko:    { label: "Toko Online", base: 1190000, included: 10 }
+        };
+        var ADDON_LABELS = {
+          logo: "Desain logo sederhana",
+          tulis: "Bantuan tulis konten",
+          seo: "SEO lanjutan",
+          foto: "Sesi foto produk",
+          kilat: "Pengerjaan kilat (lebih cepat)"
+        };
+
+        var state = { type: "landing", pages: 1, addons: {} };
+        var segJenis = document.getElementById("seg-jenis");
+        var segAddon = document.getElementById("seg-addon");
+        var pagesInput = document.getElementById("pages");
+        var pagesVal = document.getElementById("pages-val");
+        var pagesEcho = document.getElementById("pages-echo");
+        var pagesNote = document.getElementById("pages-note");
+        var linesEl = document.getElementById("calc-lines");
+        var totalEl = document.getElementById("calc-total");
+        var waBtn = document.getElementById("calc-wa");
+
+        function rupiah(n) {
+          return "Rp " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function render() {
+          var t = TYPES[state.type];
+          var extraPages = Math.max(0, state.pages - t.included);
+          var lines = [];
+          var total = t.base;
+          lines.push([t.label + " (paket dasar)", rupiah(t.base)]);
+          if (extraPages > 0) {
+            var cost = extraPages * EXTRA_PAGE;
+            total += cost;
+            lines.push(["Halaman ekstra (" + extraPages + " × Rp 50 rb)", rupiah(cost)]);
+          }
+          Object.keys(state.addons).forEach(function (key) {
+            if (state.addons[key]) {
+              total += state.addons[key];
+              lines.push([ADDON_LABELS[key], rupiah(state.addons[key])]);
+            }
+          });
+          linesEl.innerHTML = lines.map(function (l) {
+            return "<div><span>" + l[0] + "</span><b>" + l[1] + "</b></div>";
+          }).join("");
+          totalEl.textContent = rupiah(total);
+
+          pagesVal.textContent = state.pages + " hal.";
+          pagesEcho.textContent = state.pages + (state.pages === 1 ? " halaman" : " halaman");
+          pagesNote.textContent = "Paket ini sudah termasuk " + t.included + " halaman. Halaman ekstra Rp 50 rb/halaman.";
+
+          var msgLines = ["Halo WebLaris, saya mau konsultasi website dengan estimasi berikut:",
+            "- Jenis: " + t.label,
+            "- Jumlah halaman: " + state.pages];
+          Object.keys(state.addons).forEach(function (key) {
+            if (state.addons[key]) msgLines.push("- Tambahan: " + ADDON_LABELS[key]);
+          });
+          msgLines.push("- Estimasi total: " + rupiah(total));
+          msgLines.push("Mohon info langkah selanjutnya. Terima kasih.");
+          waBtn.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msgLines.join("\n"));
+        }
+
+        segJenis.addEventListener("click", function (e) {
+          var btn = e.target.closest("button[data-type]");
+          if (!btn) return;
+          state.type = btn.getAttribute("data-type");
+          segJenis.querySelectorAll("button").forEach(function (b) {
+            b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+          });
+          if (state.pages < TYPES[state.type].included) {
+            state.pages = TYPES[state.type].included;
+            pagesInput.value = state.pages;
+          }
+          render();
+        });
+
+        segAddon.addEventListener("click", function (e) {
+          var btn = e.target.closest("button[data-addon]");
+          if (!btn) return;
+          var key = btn.getAttribute("data-addon");
+          var price = parseInt(btn.getAttribute("data-price"), 10);
+          var on = btn.getAttribute("aria-pressed") !== "true";
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+          state.addons[key] = on ? price : 0;
+          render();
+        });
+
+        pagesInput.addEventListener("input", function () {
+          state.pages = parseInt(pagesInput.value, 10);
+          render();
+        });
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+        render();
+      })();
+    </script>
+  </body>
+</html>
