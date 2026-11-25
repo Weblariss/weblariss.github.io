@@ -157,20 +157,29 @@
       .sec-head p { color: var(--ink-soft); margin: 0; font-size: 1.05rem; }
 
       /* Portfolio */
-      .folio { display: grid; gap: 28px; }
-      .folio-item {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
-        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+      .folio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      @media (max-width: 820px) { .folio-grid { grid-template-columns: 1fr; } }
+      .site-card {
+        display: flex; flex-direction: column;
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        overflow: hidden; text-decoration: none;
+        transition: border-color .15s ease, box-shadow .15s ease;
       }
-      .folio-item:nth-child(even) .folio-visual { order: 2; }
-      @media (max-width: 820px) { .folio-item { grid-template-columns: 1fr; padding: 20px; } .folio-item:nth-child(even) .folio-visual { order: 0; } }
-      .folio-visual .mock-body { padding: 18px; }
+      .site-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+      .site-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+      .site-card-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
       .folio-cat { font-family: "IBM Plex Mono", monospace; font-size: .8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
-      .folio-item h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; margin: 8px 0 8px; }
-      .folio-item p { color: var(--ink-soft); margin: 0 0 14px; }
+      .site-card h3 { font-size: 1.4rem; font-weight: 800; letter-spacing: -.01em; margin: 8px 0 8px; }
+      .site-card p { color: var(--ink-soft); margin: 0 0 14px; }
       .folio-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
       .folio-points li { display: flex; gap: 9px; align-items: flex-start; font-size: .97rem; }
       .folio-points svg { flex: none; margin-top: 3px; color: var(--accent); }
+      .site-visit {
+        margin-top: auto; padding-top: 18px;
+        display: inline-flex; align-items: center; gap: 7px;
+        font-weight: 800; font-size: .98rem; color: var(--accent);
+      }
+      .site-card:hover .site-visit { color: var(--accent-strong); }
 
       /* Pricing */
       .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
@@ -337,93 +346,54 @@
       <section id="portofolio" class="alt">
         <div class="wrap">
           <div class="sec-head">
-            <h2>Contoh hasil kerja kami</h2>
-            <p>Setiap website dirancang mengikuti karakter bisnisnya — bukan template pasaran yang diganti logo. (Nama dan isi di bagian ini adalah contoh — ganti dengan proyek aslimu.)</p>
+            <h2>Contoh Hasil Website</h2>
+            <p>Contoh website untuk berbagai jenis usaha. Klik kartunya untuk membuka website aslinya.</p>
           </div>
-          <div class="folio">
-            <article class="folio-item">
-              <div class="folio-visual">
-                <div class="mock" aria-hidden="true">
-                  <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">kopisenja.id</span></div>
-                  <div class="mock-body">
-                    <p class="mock-h">Menu digital &amp; pesan antar</p>
-                    <div class="mock-p"></div><div class="mock-p short"></div>
-                    <span class="mock-btn" style="background:#b06f2f">Lihat Menu</span>
-                    <div class="mock-cards">
-                      <div class="mock-card"><div class="mock-thumb t1"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                      <div class="mock-card"><div class="mock-thumb t2"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                      <div class="mock-card"><div class="mock-thumb t3"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <span class="folio-cat">Kedai Kopi — Yogyakarta</span>
-                <h3>Kopi Senja</h3>
-                <p>Landing page dengan menu digital yang bisa di-update sendiri oleh pemilik, lengkap dengan tombol pesan antar dan reservasi meja.</p>
+          <div class="folio-grid">
+            <a class="site-card" href="https://kostsumagung3.github.io/" target="_blank" rel="noopener">
+              <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mock-url">kostsumagung3.github.io</span></div>
+              <div class="site-card-body">
+                <span class="folio-cat">Usaha Kost — Kelapa Gading, Jakarta</span>
+                <h3>Kost Sumagung 3</h3>
+                <p>Website untuk usaha kost di Kelapa Gading, Jakarta Utara. Isinya menampilkan tipe-tipe kamar, fasilitas, galeri foto, dan kontak pemilik, jadi calon penghuni bisa melihat-lihat dulu sebelum bertanya.</p>
                 <ul class="folio-points">
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Menu digital, update harga tanpa coding</li>
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Reservasi meja langsung masuk WhatsApp</li>
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lokasi terhubung ke Google Maps &amp; pencarian lokal</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Daftar tipe kamar beserta fasilitasnya</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Galeri foto kamar dan bangunan</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tombol WhatsApp langsung ke pemilik</li>
                 </ul>
+                <span class="site-visit">Kunjungi website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
               </div>
-            </article>
+            </a>
 
-            <article class="folio-item">
-              <div class="folio-visual">
-                <div class="mock" aria-hidden="true">
-                  <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">larasbatik.com</span></div>
-                  <div class="mock-body">
-                    <p class="mock-h">Batik premium, kirim se-Indonesia</p>
-                    <div class="mock-p"></div><div class="mock-p short"></div>
-                    <span class="mock-btn" style="background:#8a4b2a">Belanja Sekarang</span>
-                    <div class="mock-cards">
-                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#c98d5e,#8a4b2a)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#5e3a1e,#33200f)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#e0aa6e,#b57a3e)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                    </div>
-                  </div>
-                </div>
+            <a class="site-card" href="https://bacacoffee.id/" target="_blank" rel="noopener">
+              <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mock-url">bacacoffee.id</span></div>
+              <div class="site-card-body">
+                <span class="folio-cat">Kedai Kopi &amp; Toko Buku</span>
+                <h3>Baca Coffee &amp; Book Store</h3>
+                <p>Website kedai kopi yang merangkap toko buku lokal. Pengunjung bisa melihat daftar menu beserta harganya sebelum datang, plus mengenal koleksi buku yang dijual di tempat.</p>
+                <ul class="folio-points">
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Daftar menu lengkap dengan harga</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Info koleksi buku di toko</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kontak dan lokasi kedai</li>
+                </ul>
+                <span class="site-visit">Kunjungi website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
               </div>
-              <div>
-                <span class="folio-cat">Butik Fashion — Solo</span>
+            </a>
+
+            <a class="site-card" href="https://larasbatik.com" target="_blank" rel="noopener">
+              <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mock-url">larasbatik.com</span></div>
+              <div class="site-card-body">
+                <span class="folio-cat">Toko Online — Batik</span>
                 <h3>Laras Batik</h3>
-                <p>Toko online untuk butik batik yang sebelumnya hanya jualan lewat Instagram. Sekarang katalog rapi, stok terkontrol, dan order masuk lewat satu pintu.</p>
+                <p>Toko batik online yang menjual kemeja dan outer batik modern. Pengunjung bisa melihat katalog produk beserta harganya, lalu memesan langsung dari website.</p>
                 <ul class="folio-points">
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Katalog 120+ produk dengan filter ukuran &amp; motif</li>
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Checkout dengan hitung ongkir otomatis</li>
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Terhubung ke Instagram Shop &amp; katalog WhatsApp</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Katalog kemeja &amp; outer batik dengan harga</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pemesanan langsung dari website</li>
+                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kontak penjual untuk tanya stok &amp; ukuran</li>
                 </ul>
+                <span class="site-visit">Kunjungi website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
               </div>
-            </article>
-
-            <article class="folio-item">
-              <div class="folio-visual">
-                <div class="mock" aria-hidden="true">
-                  <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">berkahmotor.co.id</span></div>
-                  <div class="mock-body">
-                    <p class="mock-h">Booking servis tanpa antre</p>
-                    <div class="mock-p"></div><div class="mock-p short"></div>
-                    <span class="mock-btn" style="background:#0b6e4f">Booking Servis</span>
-                    <div class="mock-cards">
-                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#3f6212,#1d2e08)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#78716c,#44403c)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                      <div class="mock-card"><div class="mock-thumb" style="background:linear-gradient(135deg,#0b6e4f,#073d2b)"></div><div class="mock-line"></div><div class="mock-line short"></div></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <span class="folio-cat">Bengkel &amp; Sparepart — Bekasi</span>
-                <h3>Berkah Motor</h3>
-                <p>Company profile plus sistem booking servis sederhana. Pelanggan pilih jadwal dari HP, bengkel menerima rekap otomatis — antrean jadi jauh lebih tertib.</p>
-                <ul class="folio-points">
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Formulir booking dengan pilihan jadwal &amp; jenis servis</li>
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Daftar harga jasa transparan, mengurangi tanya berulang</li>
-                  <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tombol darurat derek 24 jam selalu terlihat</li>
-                </ul>
-              </div>
-            </article>
+            </a>
           </div>
         </div>
       </section>
