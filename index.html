@@ -156,26 +156,6 @@
       .sec-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.2; margin: 0 0 10px; }
       .sec-head p { color: var(--ink-soft); margin: 0; font-size: 1.05rem; }
 
-      /* Services */
-      .svc { border-top: 1px solid var(--line); }
-      .svc-row {
-        display: grid; grid-template-columns: 64px 1fr auto; gap: 20px; align-items: start;
-        padding: 26px 6px; border-bottom: 1px solid var(--line);
-      }
-      .svc-num { font-family: "IBM Plex Mono", monospace; font-weight: 600; color: var(--accent); font-size: 1rem; padding-top: 4px; }
-      .svc-row h3 { margin: 0 0 6px; font-size: 1.25rem; font-weight: 800; letter-spacing: -.01em; }
-      .svc-row p { margin: 0; color: var(--ink-soft); max-width: 36rem; }
-      .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-      .svc-tags span { font-size: .8rem; font-weight: 600; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: var(--ink-soft); background: var(--surface); }
-      .svc-price { text-align: right; white-space: nowrap; }
-      .svc-price small { display: block; color: var(--muted); font-size: .8rem; }
-      .svc-price b { font-size: 1.2rem; font-weight: 800; }
-      @media (max-width: 640px) {
-        .svc-row { grid-template-columns: 40px 1fr; }
-        .svc-price { grid-column: 2; text-align: left; margin-top: 4px; }
-        .svc-price small { display: inline; margin-right: 6px; }
-      }
-
       /* Portfolio */
       .folio { display: grid; gap: 28px; }
       .folio-item {
@@ -324,7 +304,6 @@
       <div class="wrap nav-inner">
         <a class="brand" href="#atas"><span class="brand-mark">&lt;/&gt;</span>Web<em>Laris</em></a>
         <nav class="nav-links" aria-label="Navigasi utama">
-          <a href="#layanan">Layanan</a>
           <a href="#portofolio">Portofolio</a>
           <a href="#harga">Harga</a>
           <a href="#kalkulator">Simulasi</a>
@@ -353,54 +332,6 @@
           </div>
         </div>
       </div>
-
-      <!-- LAYANAN -->
-      <section id="layanan">
-        <div class="wrap">
-          <div class="sec-head">
-            <h2>Pilih jenis website yang paling pas buat usahamu</h2>
-            <p>Semua paket sudah termasuk domain, hosting 1 tahun, SSL (https), dan panduan cara mengelola websitenya.</p>
-          </div>
-          <div class="svc">
-            <div class="svc-row">
-              <span class="svc-num">01</span>
-              <div>
-                <h3>Landing Page</h3>
-                <p>Satu halaman fokus jualan: cocok untuk promosi produk, jasa, atau event. Isinya padat, loading cepat, dan semua tombol mengarah ke WhatsApp atau formulir order.</p>
-                <div class="svc-tags"><span>Promosi produk</span><span>Iklan Meta/Google Ads</span><span>Pre-order</span></div>
-              </div>
-              <div class="svc-price"><small>mulai dari</small><b>Rp 299 rb</b></div>
-            </div>
-            <div class="svc-row">
-              <span class="svc-num">02</span>
-              <div>
-                <h3>Company Profile</h3>
-                <p>Website resmi perusahaan atau usaha: profil, layanan, galeri, testimoni, dan kontak. Bikin calon pelanggan dan mitra makin percaya sebelum menghubungi kamu.</p>
-                <div class="svc-tags"><span>Profil usaha</span><span>Portofolio</span><span>Blog/artikel</span></div>
-              </div>
-              <div class="svc-price"><small>mulai dari</small><b>Rp 599 rb</b></div>
-            </div>
-            <div class="svc-row">
-              <span class="svc-num">03</span>
-              <div>
-                <h3>Toko Online</h3>
-                <p>Katalog produk lengkap dengan keranjang belanja dan checkout. Pesanan masuk rapi, stok gampang diatur, dan pelanggan bisa belanja kapan saja — bahkan saat kamu tidur.</p>
-                <div class="svc-tags"><span>Katalog produk</span><span>Checkout WhatsApp</span><span>Payment gateway</span></div>
-              </div>
-              <div class="svc-price"><small>mulai dari</small><b>Rp 1,19 jt</b></div>
-            </div>
-            <div class="svc-row">
-              <span class="svc-num">04</span>
-              <div>
-                <h3>Website Custom</h3>
-                <p>Butuh fitur khusus? Sistem booking, web aplikasi, portal member, atau integrasi dengan sistem yang sudah ada — ceritakan kebutuhanmu, kami carikan jalan paling masuk akal.</p>
-                <div class="svc-tags"><span>Sistem booking</span><span>Web app</span><span>Integrasi API</span></div>
-              </div>
-              <div class="svc-price"><small>mulai dari</small><b>Rp 2,5 jt</b></div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- PORTOFOLIO -->
       <section id="portofolio" class="alt">
@@ -745,7 +676,6 @@
           <p>Jasa pembuatan website untuk UMKM dan bisnis lokal Indonesia. Cepat, transparan, dan didampingi sampai online.</p>
         </div>
         <nav aria-label="Tautan layanan">
-          <a href="#layanan">Layanan</a>
           <a href="#portofolio">Portofolio</a>
           <a href="#harga">Paket Harga</a>
         </nav>
