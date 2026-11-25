@@ -206,42 +206,6 @@
       .plan.featured li svg { color: var(--amber); }
       .price-note { margin-top: 22px; text-align: center; color: var(--muted); font-size: .95rem; }
 
-      /* Calculator */
-      .calc {
-        display: grid; grid-template-columns: 1.15fr .85fr; gap: 0;
-        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
-      }
-      @media (max-width: 860px) { .calc { grid-template-columns: 1fr; } }
-      .calc-form { padding: 28px; }
-      .calc-form h3, .calc-result h3 { margin: 0 0 4px; font-size: 1.15rem; font-weight: 800; }
-      .calc-form > p, .calc-result > p { margin: 0 0 20px; color: var(--muted); font-size: .93rem; }
-      .field-label { display: block; font-weight: 700; font-size: .92rem; margin: 20px 0 8px; }
-      .field-label:first-of-type { margin-top: 0; }
-      .seg { display: flex; flex-wrap: wrap; gap: 8px; }
-      .seg button, .addon {
-        font-family: inherit; font-weight: 600; font-size: .93rem; cursor: pointer;
-        border: 1px solid var(--line); background: var(--bg); color: var(--ink);
-        border-radius: 10px; padding: 10px 14px; min-height: 44px;
-      }
-      .seg button[aria-pressed="true"], .addon[aria-pressed="true"] {
-        background: var(--accent); border-color: var(--accent); color: var(--accent-ink);
-      }
-      .seg button small { display: block; font-weight: 500; font-size: .78rem; opacity: .75; }
-      .pages-row { display: flex; align-items: center; gap: 16px; }
-      .pages-row input[type="range"] { flex: 1; accent-color: var(--accent); min-height: 44px; }
-      .pages-val { font-family: "IBM Plex Mono", monospace; font-weight: 600; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; min-width: 74px; text-align: center; }
-      .calc-result { background: var(--dark-band); color: var(--dark-band-ink); padding: 28px; display: flex; flex-direction: column; }
-      .calc-result > p { color: var(--dark-band-muted); }
-      .calc-lines { display: grid; gap: 9px; font-size: .95rem; margin-bottom: 18px; }
-      .calc-lines div { display: flex; justify-content: space-between; gap: 16px; }
-      .calc-lines span { color: var(--dark-band-muted); }
-      .calc-lines b { font-family: "IBM Plex Mono", monospace; font-weight: 600; white-space: nowrap; }
-      .calc-total { border-top: 1px solid rgba(255,255,255,.18); padding-top: 16px; margin-top: auto; }
-      .calc-total small { color: var(--dark-band-muted); display: block; font-size: .85rem; }
-      .calc-total .amount { font-size: 2rem; font-weight: 800; letter-spacing: -.02em; margin: 2px 0 16px; }
-      .calc-result .btn { width: 100%; }
-      .calc-fine { font-size: .8rem; color: var(--dark-band-muted); margin-top: 12px; }
-
       /* Kenapa order */
       .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
       @media (max-width: 900px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -309,7 +273,6 @@
         <nav class="nav-links" aria-label="Navigasi utama">
           <a href="#portofolio">Portofolio</a>
           <a href="#harga">Harga</a>
-          <a href="#kalkulator">Simulasi</a>
           <a href="#faq">FAQ</a>
         </nav>
         <a class="btn btn-wa btn-nav" href="https://wa.me/6288269586277?text=Halo%20WebLaris%2C%20saya%20mau%20konsultasi%20bikin%20website." target="_blank" rel="noopener">Konsultasi Gratis</a>
@@ -450,64 +413,13 @@
               <a class="btn btn-ghost" href="https://wa.me/6288269586277?text=Halo%20WebLaris%2C%20saya%20tertarik%20paket%20Toko%20Online%20Rp%201%2C19%20jt." target="_blank" rel="noopener">Pilih Paket Ini</a>
             </div>
           </div>
+          <p class="price-note">Fitur tambahan (opsional): Desain logo sederhana +150 rb · Bantuan tulis konten +100 rb · SEO lanjutan +150 rb · Pengerjaan kilat (lebih cepat) +100 rb.</p>
           <p class="price-note">Pembayaran bisa dicicil 2×: DP 50% untuk mulai, pelunasan setelah website jadi dan kamu puas dengan hasilnya.</p>
         </div>
       </section>
 
-      <!-- KALKULATOR -->
-      <section id="kalkulator" class="alt">
-        <div class="wrap">
-          <div class="sec-head">
-            <h2>Simulasi harga sendiri</h2>
-            <p>Geser dan pilih sesuai kebutuhanmu — estimasi langsung muncul. Harga final dikonfirmasi lagi saat konsultasi, tanpa kewajiban.</p>
-          </div>
-          <div class="calc">
-            <div class="calc-form">
-              <h3>Atur kebutuhanmu</h3>
-              <p>Estimasi berubah otomatis mengikuti pilihanmu.</p>
-
-              <span class="field-label" id="lbl-jenis">Jenis website</span>
-              <div class="seg" role="group" aria-labelledby="lbl-jenis" id="seg-jenis">
-                <button type="button" data-type="landing" aria-pressed="true">Landing Page<small>basis Rp 299 rb</small></button>
-                <button type="button" data-type="company" aria-pressed="false">Company Profile<small>basis Rp 599 rb</small></button>
-                <button type="button" data-type="toko" aria-pressed="false">Toko Online<small>basis Rp 1,19 jt</small></button>
-              </div>
-
-              <span class="field-label" id="lbl-halaman">Jumlah halaman: <span id="pages-echo">1 halaman</span></span>
-              <div class="pages-row">
-                <input type="range" id="pages" min="1" max="20" step="1" value="1" aria-labelledby="lbl-halaman" />
-                <span class="pages-val" id="pages-val">1 hal.</span>
-              </div>
-              <p style="margin:6px 0 0;font-size:.85rem;color:var(--muted)" id="pages-note">Paket ini sudah termasuk 1 halaman. Halaman ekstra Rp 50 rb/halaman.</p>
-
-              <span class="field-label" id="lbl-addon">Fitur tambahan (opsional)</span>
-              <div class="seg" role="group" aria-labelledby="lbl-addon" id="seg-addon">
-                <button type="button" class="addon" data-addon="logo" data-price="150000" aria-pressed="false">Desain logo sederhana · +150 rb</button>
-                <button type="button" class="addon" data-addon="tulis" data-price="100000" aria-pressed="false">Bantuan tulis konten · +100 rb</button>
-                <button type="button" class="addon" data-addon="seo" data-price="150000" aria-pressed="false">SEO lanjutan · +150 rb</button>
-                <button type="button" class="addon" data-addon="kilat" data-price="100000" aria-pressed="false">Pengerjaan kilat (lebih cepat) · +100 rb</button>
-              </div>
-            </div>
-
-            <div class="calc-result">
-              <h3>Estimasi biayamu</h3>
-              <p>Rincian berdasarkan pilihan di samping.</p>
-              <div class="calc-lines" id="calc-lines"></div>
-              <div class="calc-total">
-                <small>Total estimasi (sekali bayar)</small>
-                <div class="amount" id="calc-total">Rp 299.000</div>
-                <a class="btn" id="calc-wa" href="https://wa.me/6288269586277" target="_blank" rel="noopener" style="background:var(--amber);color:#23180a">
-                  Kirim Estimasi Ini ke WhatsApp
-                </a>
-                <p class="calc-fine">DP mulai 50% — sisanya setelah website selesai dan kamu setujui.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- KENAPA ORDER -->
-      <section id="kenapa">
+      <section id="kenapa" class="alt">
         <div class="wrap">
           <div class="sec-head">
             <h2>Kenapa order di WebLaris</h2>
@@ -549,7 +461,7 @@
       </section>
 
       <!-- FAQ -->
-      <section id="faq" class="alt">
+      <section id="faq">
         <div class="wrap">
           <div class="sec-head">
             <h2>Sering ditanyakan</h2>
@@ -557,7 +469,7 @@
           <div class="faq">
             <details>
               <summary>Berapa lama website saya jadi?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
-              <p>Landing Page rata-rata 3 hari kerja, Company Profile 5 hari, Toko Online 7 hari — dihitung sejak materi lengkap dan DP diterima. Kalau butuh lebih cepat, ada opsi pengerjaan kilat di simulasi harga.</p>
+              <p>Landing Page rata-rata 3 hari kerja, Company Profile 5 hari, Toko Online 7 hari — dihitung sejak materi lengkap dan DP diterima. Kalau butuh lebih cepat, ada opsi pengerjaan kilat sebagai fitur tambahan.</p>
             </details>
             <details>
               <summary>Saya nggak punya logo dan belum ada teks. Bisa dibantu?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
@@ -610,7 +522,6 @@
           <a href="#harga">Paket Harga</a>
         </nav>
         <nav aria-label="Tautan bantuan">
-          <a href="#kalkulator">Simulasi Harga</a>
           <a href="#faq">FAQ</a>
         </nav>
         <div>
@@ -626,106 +537,7 @@
     </a>
 
     <script>
-      (function () {
-        var WA_NUMBER = "6288269586277";
-        var EXTRA_PAGE = 50000;
-        var TYPES = {
-          landing: { label: "Landing Page", base: 299000, included: 1 },
-          company: { label: "Company Profile", base: 599000, included: 6 },
-          toko:    { label: "Toko Online", base: 1190000, included: 10 }
-        };
-        var ADDON_LABELS = {
-          logo: "Desain logo sederhana",
-          tulis: "Bantuan tulis konten",
-          seo: "SEO lanjutan",
-          kilat: "Pengerjaan kilat (lebih cepat)"
-        };
-
-        var state = { type: "landing", pages: 1, addons: {} };
-        var segJenis = document.getElementById("seg-jenis");
-        var segAddon = document.getElementById("seg-addon");
-        var pagesInput = document.getElementById("pages");
-        var pagesVal = document.getElementById("pages-val");
-        var pagesEcho = document.getElementById("pages-echo");
-        var pagesNote = document.getElementById("pages-note");
-        var linesEl = document.getElementById("calc-lines");
-        var totalEl = document.getElementById("calc-total");
-        var waBtn = document.getElementById("calc-wa");
-
-        function rupiah(n) {
-          return "Rp " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
-
-        function render() {
-          var t = TYPES[state.type];
-          var extraPages = Math.max(0, state.pages - t.included);
-          var lines = [];
-          var total = t.base;
-          lines.push([t.label + " (paket dasar)", rupiah(t.base)]);
-          if (extraPages > 0) {
-            var cost = extraPages * EXTRA_PAGE;
-            total += cost;
-            lines.push(["Halaman ekstra (" + extraPages + " × Rp 50 rb)", rupiah(cost)]);
-          }
-          Object.keys(state.addons).forEach(function (key) {
-            if (state.addons[key]) {
-              total += state.addons[key];
-              lines.push([ADDON_LABELS[key], rupiah(state.addons[key])]);
-            }
-          });
-          linesEl.innerHTML = lines.map(function (l) {
-            return "<div><span>" + l[0] + "</span><b>" + l[1] + "</b></div>";
-          }).join("");
-          totalEl.textContent = rupiah(total);
-
-          pagesVal.textContent = state.pages + " hal.";
-          pagesEcho.textContent = state.pages + (state.pages === 1 ? " halaman" : " halaman");
-          pagesNote.textContent = "Paket ini sudah termasuk " + t.included + " halaman. Halaman ekstra Rp 50 rb/halaman.";
-
-          var msgLines = ["Halo WebLaris, saya mau konsultasi website dengan estimasi berikut:",
-            "- Jenis: " + t.label,
-            "- Jumlah halaman: " + state.pages];
-          Object.keys(state.addons).forEach(function (key) {
-            if (state.addons[key]) msgLines.push("- Tambahan: " + ADDON_LABELS[key]);
-          });
-          msgLines.push("- Estimasi total: " + rupiah(total));
-          msgLines.push("Mohon info langkah selanjutnya. Terima kasih.");
-          waBtn.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msgLines.join("\n"));
-        }
-
-        segJenis.addEventListener("click", function (e) {
-          var btn = e.target.closest("button[data-type]");
-          if (!btn) return;
-          state.type = btn.getAttribute("data-type");
-          segJenis.querySelectorAll("button").forEach(function (b) {
-            b.setAttribute("aria-pressed", b === btn ? "true" : "false");
-          });
-          if (state.pages < TYPES[state.type].included) {
-            state.pages = TYPES[state.type].included;
-            pagesInput.value = state.pages;
-          }
-          render();
-        });
-
-        segAddon.addEventListener("click", function (e) {
-          var btn = e.target.closest("button[data-addon]");
-          if (!btn) return;
-          var key = btn.getAttribute("data-addon");
-          var price = parseInt(btn.getAttribute("data-price"), 10);
-          var on = btn.getAttribute("aria-pressed") !== "true";
-          btn.setAttribute("aria-pressed", on ? "true" : "false");
-          state.addons[key] = on ? price : 0;
-          render();
-        });
-
-        pagesInput.addEventListener("input", function () {
-          state.pages = parseInt(pagesInput.value, 10);
-          render();
-        });
-
-        document.getElementById("year").textContent = new Date().getFullYear();
-        render();
-      })();
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
