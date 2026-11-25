@@ -205,6 +205,12 @@
       .plan li svg { flex: none; margin-top: 3px; color: var(--accent); }
       .plan.featured li svg { color: var(--amber); }
       .price-note { margin-top: 22px; text-align: center; color: var(--muted); font-size: .95rem; }
+      .addon-note { max-width: 480px; margin: 26px auto 0; text-align: left; }
+      .addon-label { margin: 0 0 9px; color: var(--muted); font-size: .95rem; font-weight: 600; }
+      .addon-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+      .addon-list li { display: flex; align-items: baseline; gap: 12px; color: var(--ink-soft); font-size: .95rem; }
+      .addon-list .leader { flex: 1; border-bottom: 1px dotted var(--muted); opacity: .5; }
+      .addon-price { font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 600; color: var(--ink); white-space: nowrap; }
 
       /* Kenapa order */
       .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -413,7 +419,15 @@
               <a class="btn btn-ghost" href="https://wa.me/6288269586277?text=Halo%20WebLaris%2C%20saya%20tertarik%20paket%20Toko%20Online%20Rp%201%2C19%20jt." target="_blank" rel="noopener">Pilih Paket Ini</a>
             </div>
           </div>
-          <p class="price-note">Fitur tambahan (opsional): Desain logo sederhana +150 rb · Bantuan tulis konten +100 rb · SEO lanjutan +150 rb · Pengerjaan kilat (lebih cepat) +100 rb.</p>
+          <div class="addon-note">
+            <p class="addon-label">Fitur tambahan (opsional):</p>
+            <ul class="addon-list">
+              <li><span>Desain logo sederhana</span><span class="leader" aria-hidden="true"></span><span class="addon-price">+150 rb</span></li>
+              <li><span>Bantuan tulis konten</span><span class="leader" aria-hidden="true"></span><span class="addon-price">+100 rb</span></li>
+              <li><span>SEO lanjutan</span><span class="leader" aria-hidden="true"></span><span class="addon-price">+150 rb</span></li>
+              <li><span>Pengerjaan kilat (lebih cepat)</span><span class="leader" aria-hidden="true"></span><span class="addon-price">+100 rb</span></li>
+            </ul>
+          </div>
           <p class="price-note">Pembayaran bisa dicicil 2×: DP 50% untuk mulai, pelunasan setelah website jadi dan kamu puas dengan hasilnya.</p>
         </div>
       </section>
