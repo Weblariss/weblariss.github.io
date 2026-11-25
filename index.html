@@ -253,6 +253,22 @@
       .step h3 { margin: 8px 0 6px; font-size: 1.1rem; font-weight: 800; }
       .step p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
 
+      /* Kenapa order */
+      .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      @media (max-width: 900px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 560px) { .why-grid { grid-template-columns: 1fr; } }
+      .why-card {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 24px;
+      }
+      .why-icon {
+        width: 44px; height: 44px; border-radius: 11px; margin-bottom: 14px;
+        background: var(--bg-soft); color: var(--accent);
+        display: grid; place-items: center;
+      }
+      .why-card h3 { margin: 0 0 6px; font-size: 1.08rem; font-weight: 800; letter-spacing: -.01em; }
+      .why-card p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
+
       /* FAQ */
       .faq { max-width: 760px; }
       .faq details { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); margin-bottom: 12px; overflow: hidden; }
@@ -529,6 +545,48 @@
               <span class="n">Langkah 4</span>
               <h3>Online &amp; didampingi</h3>
               <p>Website tayang dengan domainmu sendiri. Kamu dapat panduan video dan tetap bisa tanya kami setelahnya.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KENAPA ORDER -->
+      <section id="kenapa">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Kenapa order di WebLaris</h2>
+            <p>Semua yang kamu dapatkan tertulis jelas dari awal — tanpa kejutan di tengah jalan.</p>
+          </div>
+          <div class="why-grid">
+            <div class="why-card">
+              <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+              <h3>Konsultasi gratis dulu</h3>
+              <p>Ngobrol dulu lewat WhatsApp, tanya-tanya sepuasnya soal kebutuhan websitemu — tanpa wajib jadi order.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg></div>
+              <h3>Harga tertulis jelas</h3>
+              <p>Harga setiap paket tertulis lengkap di halaman ini. Nggak ada biaya siluman yang muncul belakangan.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+              <h3>Domain, hosting &amp; SSL termasuk</h3>
+              <p>Semua paket sudah termasuk domain, hosting 1 tahun, dan SSL (https) — kamu tinggal pakai.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+              <h3>Garansi perbaikan 30 hari</h3>
+              <p>Kalau ada error yang berasal dari pengerjaan kami, kami perbaiki gratis sampai 30 hari setelah website online.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></div>
+              <h3>Dibantu sampai online</h3>
+              <p>Kami dampingi sampai websitemu tayang, termasuk panduan cara mengelola websitenya sendiri setelahnya.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14Z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8 2.2 7.2"/><path d="M14 4.1 12 6"/><path d="m6 2-1.9 2"/></svg></div>
+              <h3>Contohnya bisa dicek langsung</h3>
+              <p>Contoh hasil website ada di halaman ini dan bisa diklik untuk membuka website aslinya — lihat sendiri sebelum memutuskan.</p>
             </div>
           </div>
         </div>
